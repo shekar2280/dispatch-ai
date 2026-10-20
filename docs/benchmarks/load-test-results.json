@@ -1,0 +1,939 @@
+{
+  "metadata": {
+    "title": "Dispatch AI Voice Pipeline Latency Benchmark",
+    "timestamp": "2026-10-19T06:45:26.191966+00:00",
+    "sample_size": 100,
+    "target_claim": "Latency < 500 ms",
+    "definition": "End of patient speech to first audible AI response byte (EOU + LLM TTFT + TTS TTFB)",
+    "hardware": "Windows 11 AMD64",
+    "python_version": "3.12.14",
+    "providers": {
+      "llm": "Groq openai/gpt-oss-20b",
+      "tts": "Deepgram Aura (Asteria)",
+      "stt_vad": "Silero VAD / Deepgram Nova-2"
+    }
+  },
+  "summary": {
+    "total_latency_ms": {
+      "min": 1179.57,
+      "p50": 1804.31,
+      "p90": 2070.44,
+      "p95": 2217.74,
+      "p99": 2378.32,
+      "max": 2391.18,
+      "mean": 1761.21,
+      "std_dev": 285.51
+    },
+    "llm_ttft_ms": {
+      "min": 160.0,
+      "p50": 494.62,
+      "p90": 644.93,
+      "p95": 682.46,
+      "p99": 1089.18,
+      "max": 1134.21,
+      "mean": 424.07,
+      "std_dev": 219.93
+    },
+    "tts_ttfb_ms": {
+      "min": 863.45,
+      "p50": 1217.21,
+      "p90": 1388.08,
+      "p95": 1428.69,
+      "p99": 1595.72,
+      "max": 1634.19,
+      "mean": 1203.78,
+      "std_dev": 158.07
+    },
+    "eou_stt_delay_ms": {
+      "min": 120.0,
+      "p50": 133.5,
+      "p90": 147.0,
+      "p95": 147.0,
+      "p99": 147.0,
+      "max": 147.0,
+      "mean": 133.37,
+      "std_dev": 9.01
+    },
+    "resume_claim_verified": false
+  },
+  "raw_samples": [
+    {
+      "iteration": 1,
+      "prompt": "Hello, I need to book a general consultation for tomorrow morning.",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 748.89,
+      "tts_ttfb_ms": 1174.16,
+      "total_response_latency_ms": 2047.55
+    },
+    {
+      "iteration": 2,
+      "prompt": "Is Dr. Sharma available on Friday afternoon at 3 PM?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 510.39,
+      "tts_ttfb_ms": 1245.59,
+      "total_response_latency_ms": 1884.98
+    },
+    {
+      "iteration": 3,
+      "prompt": "I have been having a mild cough and fever since yesterday evening.",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 583.34,
+      "tts_ttfb_ms": 1172.59,
+      "total_response_latency_ms": 1889.43
+    },
+    {
+      "iteration": 4,
+      "prompt": "Can you reschedule my appointment from Wednesday to Thursday?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 677.54,
+      "tts_ttfb_ms": 1090.17,
+      "total_response_latency_ms": 1905.71
+    },
+    {
+      "iteration": 5,
+      "prompt": "What time does the clinic open on Mondays for walk-in OPD?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 500.41,
+      "tts_ttfb_ms": 936.39,
+      "total_response_latency_ms": 1579.3
+    },
+    {
+      "iteration": 6,
+      "prompt": "I want to book an appointment for my mother with the cardiologist.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 513.21,
+      "tts_ttfb_ms": 926.32,
+      "total_response_latency_ms": 1586.53
+    },
+    {
+      "iteration": 7,
+      "prompt": "I need to see Dr. Roy today if there are any slots available.",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 480.72,
+      "tts_ttfb_ms": 956.3,
+      "total_response_latency_ms": 1557.02
+    },
+    {
+      "iteration": 8,
+      "prompt": "Can I get a consultation slot around 11:30 AM?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 369.27,
+      "tts_ttfb_ms": 1345.5,
+      "total_response_latency_ms": 1839.27
+    },
+    {
+      "iteration": 9,
+      "prompt": "My appointment is currently at 4 PM, can we make it 5 PM instead?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 559.72,
+      "tts_ttfb_ms": 1243.29,
+      "total_response_latency_ms": 1932.01
+    },
+    {
+      "iteration": 10,
+      "prompt": "Does the clinic have parking available for patients?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 644.13,
+      "tts_ttfb_ms": 1400.36,
+      "total_response_latency_ms": 2177.99
+    },
+    {
+      "iteration": 11,
+      "prompt": "I need to check if my blood test results can be reviewed today.",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 510.71,
+      "tts_ttfb_ms": 1174.06,
+      "total_response_latency_ms": 1822.77
+    },
+    {
+      "iteration": 12,
+      "prompt": "Can I book a pediatric slot for my son this Saturday morning?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 498.83,
+      "tts_ttfb_ms": 1215.02,
+      "total_response_latency_ms": 1856.35
+    },
+    {
+      "iteration": 13,
+      "prompt": "What is the consultation fee for a first-time visit?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 477.57,
+      "tts_ttfb_ms": 1273.61,
+      "total_response_latency_ms": 1898.18
+    },
+    {
+      "iteration": 14,
+      "prompt": "Is there an orthopedic doctor on duty today?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 520.3,
+      "tts_ttfb_ms": 1103.44,
+      "total_response_latency_ms": 1743.74
+    },
+    {
+      "iteration": 15,
+      "prompt": "I need an appointment between 2 PM and 4 PM tomorrow.",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 194.49,
+      "tts_ttfb_ms": 881.02,
+      "total_response_latency_ms": 1200.01
+    },
+    {
+      "iteration": 16,
+      "prompt": "Could you check if Dr. Davis has any cancellations today?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 1089.18,
+      "tts_ttfb_ms": 1173.0,
+      "total_response_latency_ms": 2391.18
+    },
+    {
+      "iteration": 17,
+      "prompt": "I want to follow up on my prescription from last week.",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 220.05,
+      "tts_ttfb_ms": 1124.26,
+      "total_response_latency_ms": 1477.81
+    },
+    {
+      "iteration": 18,
+      "prompt": "Can I book an appointment under the name Rahul Verma?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 686.99,
+      "tts_ttfb_ms": 1053.79,
+      "total_response_latency_ms": 1878.78
+    },
+    {
+      "iteration": 19,
+      "prompt": "Are walk-ins accepted before 10 AM without prior registration?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 571.2,
+      "tts_ttfb_ms": 1209.95,
+      "total_response_latency_ms": 1923.65
+    },
+    {
+      "iteration": 20,
+      "prompt": "I need to cancel my appointment scheduled for Friday.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 534.29,
+      "tts_ttfb_ms": 1266.54,
+      "total_response_latency_ms": 1947.83
+    },
+    {
+      "iteration": 21,
+      "prompt": "Hello, I need to book a general consultation for tomorrow morning.",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 242.73,
+      "tts_ttfb_ms": 1214.81,
+      "total_response_latency_ms": 1577.54
+    },
+    {
+      "iteration": 22,
+      "prompt": "Is Dr. Sharma available on Friday afternoon at 3 PM?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 559.15,
+      "tts_ttfb_ms": 1228.91,
+      "total_response_latency_ms": 1912.56
+    },
+    {
+      "iteration": 23,
+      "prompt": "I have been having a mild cough and fever since yesterday evening.",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 645.55,
+      "tts_ttfb_ms": 954.77,
+      "total_response_latency_ms": 1729.32
+    },
+    {
+      "iteration": 24,
+      "prompt": "Can you reschedule my appointment from Wednesday to Thursday?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 494.28,
+      "tts_ttfb_ms": 1264.22,
+      "total_response_latency_ms": 1892.0
+    },
+    {
+      "iteration": 25,
+      "prompt": "What time does the clinic open on Mondays for walk-in OPD?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 546.01,
+      "tts_ttfb_ms": 1122.9,
+      "total_response_latency_ms": 1806.91
+    },
+    {
+      "iteration": 26,
+      "prompt": "I want to book an appointment for my mother with the cardiologist.",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 575.88,
+      "tts_ttfb_ms": 1164.48,
+      "total_response_latency_ms": 1882.86
+    },
+    {
+      "iteration": 27,
+      "prompt": "I need to see Dr. Roy today if there are any slots available.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 1134.21,
+      "tts_ttfb_ms": 1059.0,
+      "total_response_latency_ms": 2340.21
+    },
+    {
+      "iteration": 28,
+      "prompt": "Can I get a consultation slot around 11:30 AM?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 561.61,
+      "tts_ttfb_ms": 1321.98,
+      "total_response_latency_ms": 2003.59
+    },
+    {
+      "iteration": 29,
+      "prompt": "My appointment is currently at 4 PM, can we make it 5 PM instead?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 518.05,
+      "tts_ttfb_ms": 1272.98,
+      "total_response_latency_ms": 1915.53
+    },
+    {
+      "iteration": 30,
+      "prompt": "Does the clinic have parking available for patients?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 364.16,
+      "tts_ttfb_ms": 1296.83,
+      "total_response_latency_ms": 1789.99
+    },
+    {
+      "iteration": 31,
+      "prompt": "I need to check if my blood test results can be reviewed today.",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 754.36,
+      "tts_ttfb_ms": 1428.69,
+      "total_response_latency_ms": 2316.55
+    },
+    {
+      "iteration": 32,
+      "prompt": "Can I book a pediatric slot for my son this Saturday morning?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 571.03,
+      "tts_ttfb_ms": 1503.38,
+      "total_response_latency_ms": 2212.41
+    },
+    {
+      "iteration": 33,
+      "prompt": "What is the consultation fee for a first-time visit?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 640.1,
+      "tts_ttfb_ms": 1595.72,
+      "total_response_latency_ms": 2378.32
+    },
+    {
+      "iteration": 34,
+      "prompt": "Is there an orthopedic doctor on duty today?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 524.21,
+      "tts_ttfb_ms": 1634.19,
+      "total_response_latency_ms": 2305.4
+    },
+    {
+      "iteration": 35,
+      "prompt": "I need an appointment between 2 PM and 4 PM tomorrow.",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 561.79,
+      "tts_ttfb_ms": 1437.5,
+      "total_response_latency_ms": 2119.29
+    },
+    {
+      "iteration": 36,
+      "prompt": "Could you check if Dr. Davis has any cancellations today?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 543.14,
+      "tts_ttfb_ms": 1371.83,
+      "total_response_latency_ms": 2039.47
+    },
+    {
+      "iteration": 37,
+      "prompt": "I want to follow up on my prescription from last week.",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 565.49,
+      "tts_ttfb_ms": 1345.21,
+      "total_response_latency_ms": 2039.7
+    },
+    {
+      "iteration": 38,
+      "prompt": "Can I book an appointment under the name Rahul Verma?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1508.21,
+      "total_response_latency_ms": 1801.71
+    },
+    {
+      "iteration": 39,
+      "prompt": "Are walk-ins accepted before 10 AM without prior registration?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 484.52,
+      "tts_ttfb_ms": 1272.37,
+      "total_response_latency_ms": 1894.89
+    },
+    {
+      "iteration": 40,
+      "prompt": "I need to cancel my appointment scheduled for Friday.",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1310.65,
+      "total_response_latency_ms": 1613.15
+    },
+    {
+      "iteration": 41,
+      "prompt": "Hello, I need to book a general consultation for tomorrow morning.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 644.93,
+      "tts_ttfb_ms": 1425.81,
+      "total_response_latency_ms": 2217.74
+    },
+    {
+      "iteration": 42,
+      "prompt": "Is Dr. Sharma available on Friday afternoon at 3 PM?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1285.89,
+      "total_response_latency_ms": 1565.89
+    },
+    {
+      "iteration": 43,
+      "prompt": "I have been having a mild cough and fever since yesterday evening.",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 539.96,
+      "tts_ttfb_ms": 1202.38,
+      "total_response_latency_ms": 1866.84
+    },
+    {
+      "iteration": 44,
+      "prompt": "Can you reschedule my appointment from Wednesday to Thursday?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1217.02,
+      "total_response_latency_ms": 1506.02
+    },
+    {
+      "iteration": 45,
+      "prompt": "What time does the clinic open on Mondays for walk-in OPD?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 248.76,
+      "tts_ttfb_ms": 1324.99,
+      "total_response_latency_ms": 1707.25
+    },
+    {
+      "iteration": 46,
+      "prompt": "I want to book an appointment for my mother with the cardiologist.",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1211.27,
+      "total_response_latency_ms": 1509.27
+    },
+    {
+      "iteration": 47,
+      "prompt": "I need to see Dr. Roy today if there are any slots available.",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 606.69,
+      "tts_ttfb_ms": 1242.69,
+      "total_response_latency_ms": 1991.88
+    },
+    {
+      "iteration": 48,
+      "prompt": "Can I get a consultation slot around 11:30 AM?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1388.61,
+      "total_response_latency_ms": 1695.61
+    },
+    {
+      "iteration": 49,
+      "prompt": "My appointment is currently at 4 PM, can we make it 5 PM instead?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 445.44,
+      "tts_ttfb_ms": 1315.06,
+      "total_response_latency_ms": 1880.5
+    },
+    {
+      "iteration": 50,
+      "prompt": "Does the clinic have parking available for patients?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1389.28,
+      "total_response_latency_ms": 1673.78
+    },
+    {
+      "iteration": 51,
+      "prompt": "I need to check if my blood test results can be reviewed today.",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 682.46,
+      "tts_ttfb_ms": 1205.03,
+      "total_response_latency_ms": 2016.49
+    },
+    {
+      "iteration": 52,
+      "prompt": "Can I book a pediatric slot for my son this Saturday morning?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1247.38,
+      "total_response_latency_ms": 1540.88
+    },
+    {
+      "iteration": 53,
+      "prompt": "What is the consultation fee for a first-time visit?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 410.14,
+      "tts_ttfb_ms": 1031.98,
+      "total_response_latency_ms": 1580.12
+    },
+    {
+      "iteration": 54,
+      "prompt": "Is there an orthopedic doctor on duty today?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1220.66,
+      "total_response_latency_ms": 1523.16
+    },
+    {
+      "iteration": 55,
+      "prompt": "I need an appointment between 2 PM and 4 PM tomorrow.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 641.85,
+      "tts_ttfb_ms": 970.08,
+      "total_response_latency_ms": 1758.93
+    },
+    {
+      "iteration": 56,
+      "prompt": "Could you check if Dr. Davis has any cancellations today?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 899.57,
+      "total_response_latency_ms": 1179.57
+    },
+    {
+      "iteration": 57,
+      "prompt": "I want to follow up on my prescription from last week.",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 510.46,
+      "tts_ttfb_ms": 1097.3,
+      "total_response_latency_ms": 1732.26
+    },
+    {
+      "iteration": 58,
+      "prompt": "Can I book an appointment under the name Rahul Verma?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 897.89,
+      "total_response_latency_ms": 1186.89
+    },
+    {
+      "iteration": 59,
+      "prompt": "Are walk-ins accepted before 10 AM without prior registration?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 569.12,
+      "tts_ttfb_ms": 863.45,
+      "total_response_latency_ms": 1566.07
+    },
+    {
+      "iteration": 60,
+      "prompt": "I need to cancel my appointment scheduled for Friday.",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1053.06,
+      "total_response_latency_ms": 1351.06
+    },
+    {
+      "iteration": 61,
+      "prompt": "Hello, I need to book a general consultation for tomorrow morning.",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 596.69,
+      "tts_ttfb_ms": 1152.48,
+      "total_response_latency_ms": 1891.67
+    },
+    {
+      "iteration": 62,
+      "prompt": "Is Dr. Sharma available on Friday afternoon at 3 PM?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1127.72,
+      "total_response_latency_ms": 1434.72
+    },
+    {
+      "iteration": 63,
+      "prompt": "I have been having a mild cough and fever since yesterday evening.",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 531.99,
+      "tts_ttfb_ms": 1241.3,
+      "total_response_latency_ms": 1893.29
+    },
+    {
+      "iteration": 64,
+      "prompt": "Can you reschedule my appointment from Wednesday to Thursday?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1322.1,
+      "total_response_latency_ms": 1606.6
+    },
+    {
+      "iteration": 65,
+      "prompt": "What time does the clinic open on Mondays for walk-in OPD?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 536.79,
+      "tts_ttfb_ms": 1226.09,
+      "total_response_latency_ms": 1891.88
+    },
+    {
+      "iteration": 66,
+      "prompt": "I want to book an appointment for my mother with the cardiologist.",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1153.63,
+      "total_response_latency_ms": 1447.13
+    },
+    {
+      "iteration": 67,
+      "prompt": "I need to see Dr. Roy today if there are any slots available.",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 407.93,
+      "tts_ttfb_ms": 1224.45,
+      "total_response_latency_ms": 1770.38
+    },
+    {
+      "iteration": 68,
+      "prompt": "Can I get a consultation slot around 11:30 AM?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 924.99,
+      "total_response_latency_ms": 1227.49
+    },
+    {
+      "iteration": 69,
+      "prompt": "My appointment is currently at 4 PM, can we make it 5 PM instead?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 658.59,
+      "tts_ttfb_ms": 1264.85,
+      "total_response_latency_ms": 2070.44
+    },
+    {
+      "iteration": 70,
+      "prompt": "Does the clinic have parking available for patients?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 907.46,
+      "total_response_latency_ms": 1187.46
+    },
+    {
+      "iteration": 71,
+      "prompt": "I need to check if my blood test results can be reviewed today.",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 407.95,
+      "tts_ttfb_ms": 1344.26,
+      "total_response_latency_ms": 1876.71
+    },
+    {
+      "iteration": 72,
+      "prompt": "Can I book a pediatric slot for my son this Saturday morning?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1182.57,
+      "total_response_latency_ms": 1471.57
+    },
+    {
+      "iteration": 73,
+      "prompt": "What is the consultation fee for a first-time visit?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 539.68,
+      "tts_ttfb_ms": 1346.16,
+      "total_response_latency_ms": 2019.34
+    },
+    {
+      "iteration": 74,
+      "prompt": "Is there an orthopedic doctor on duty today?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 991.5,
+      "total_response_latency_ms": 1289.5
+    },
+    {
+      "iteration": 75,
+      "prompt": "I need an appointment between 2 PM and 4 PM tomorrow.",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 404.56,
+      "tts_ttfb_ms": 1163.59,
+      "total_response_latency_ms": 1710.65
+    },
+    {
+      "iteration": 76,
+      "prompt": "Could you check if Dr. Davis has any cancellations today?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1134.93,
+      "total_response_latency_ms": 1441.93
+    },
+    {
+      "iteration": 77,
+      "prompt": "I want to follow up on my prescription from last week.",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 616.2,
+      "tts_ttfb_ms": 1270.18,
+      "total_response_latency_ms": 2006.38
+    },
+    {
+      "iteration": 78,
+      "prompt": "Can I book an appointment under the name Rahul Verma?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1309.07,
+      "total_response_latency_ms": 1593.57
+    },
+    {
+      "iteration": 79,
+      "prompt": "Are walk-ins accepted before 10 AM without prior registration?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 653.99,
+      "tts_ttfb_ms": 1263.66,
+      "total_response_latency_ms": 2046.65
+    },
+    {
+      "iteration": 80,
+      "prompt": "I need to cancel my appointment scheduled for Friday.",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1185.39,
+      "total_response_latency_ms": 1478.89
+    },
+    {
+      "iteration": 81,
+      "prompt": "Hello, I need to book a general consultation for tomorrow morning.",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 618.78,
+      "tts_ttfb_ms": 1352.62,
+      "total_response_latency_ms": 2109.4
+    },
+    {
+      "iteration": 82,
+      "prompt": "Is Dr. Sharma available on Friday afternoon at 3 PM?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1388.08,
+      "total_response_latency_ms": 1690.58
+    },
+    {
+      "iteration": 83,
+      "prompt": "I have been having a mild cough and fever since yesterday evening.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 590.07,
+      "tts_ttfb_ms": 1217.4,
+      "total_response_latency_ms": 1954.47
+    },
+    {
+      "iteration": 84,
+      "prompt": "Can you reschedule my appointment from Wednesday to Thursday?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1310.17,
+      "total_response_latency_ms": 1590.17
+    },
+    {
+      "iteration": 85,
+      "prompt": "What time does the clinic open on Mondays for walk-in OPD?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 589.4,
+      "tts_ttfb_ms": 1297.46,
+      "total_response_latency_ms": 2011.36
+    },
+    {
+      "iteration": 86,
+      "prompt": "I want to book an appointment for my mother with the cardiologist.",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1118.42,
+      "total_response_latency_ms": 1407.42
+    },
+    {
+      "iteration": 87,
+      "prompt": "I need to see Dr. Roy today if there are any slots available.",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 430.6,
+      "tts_ttfb_ms": 1125.13,
+      "total_response_latency_ms": 1689.23
+    },
+    {
+      "iteration": 88,
+      "prompt": "Can I get a consultation slot around 11:30 AM?",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1036.04,
+      "total_response_latency_ms": 1334.04
+    },
+    {
+      "iteration": 89,
+      "prompt": "My appointment is currently at 4 PM, can we make it 5 PM instead?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 627.28,
+      "tts_ttfb_ms": 1253.67,
+      "total_response_latency_ms": 2023.45
+    },
+    {
+      "iteration": 90,
+      "prompt": "Does the clinic have parking available for patients?",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1383.0,
+      "total_response_latency_ms": 1690.0
+    },
+    {
+      "iteration": 91,
+      "prompt": "I need to check if my blood test results can be reviewed today.",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 493.32,
+      "tts_ttfb_ms": 1216.37,
+      "total_response_latency_ms": 1829.69
+    },
+    {
+      "iteration": 92,
+      "prompt": "Can I book a pediatric slot for my son this Saturday morning?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1285.78,
+      "total_response_latency_ms": 1570.28
+    },
+    {
+      "iteration": 93,
+      "prompt": "What is the consultation fee for a first-time visit?",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 494.95,
+      "tts_ttfb_ms": 1218.9,
+      "total_response_latency_ms": 1842.85
+    },
+    {
+      "iteration": 94,
+      "prompt": "Is there an orthopedic doctor on duty today?",
+      "eou_stt_delay_ms": 133.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1151.37,
+      "total_response_latency_ms": 1444.87
+    },
+    {
+      "iteration": 95,
+      "prompt": "I need an appointment between 2 PM and 4 PM tomorrow.",
+      "eou_stt_delay_ms": 138.0,
+      "llm_ttft_ms": 582.44,
+      "tts_ttfb_ms": 1089.07,
+      "total_response_latency_ms": 1809.51
+    },
+    {
+      "iteration": 96,
+      "prompt": "Could you check if Dr. Davis has any cancellations today?",
+      "eou_stt_delay_ms": 142.5,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1129.33,
+      "total_response_latency_ms": 1431.83
+    },
+    {
+      "iteration": 97,
+      "prompt": "I want to follow up on my prescription from last week.",
+      "eou_stt_delay_ms": 147.0,
+      "llm_ttft_ms": 591.52,
+      "tts_ttfb_ms": 1269.68,
+      "total_response_latency_ms": 2008.2
+    },
+    {
+      "iteration": 98,
+      "prompt": "Can I book an appointment under the name Rahul Verma?",
+      "eou_stt_delay_ms": 120.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 1175.0,
+      "total_response_latency_ms": 1455.0
+    },
+    {
+      "iteration": 99,
+      "prompt": "Are walk-ins accepted before 10 AM without prior registration?",
+      "eou_stt_delay_ms": 124.5,
+      "llm_ttft_ms": 436.47,
+      "tts_ttfb_ms": 927.4,
+      "total_response_latency_ms": 1488.37
+    },
+    {
+      "iteration": 100,
+      "prompt": "I need to cancel my appointment scheduled for Friday.",
+      "eou_stt_delay_ms": 129.0,
+      "llm_ttft_ms": 160.0,
+      "tts_ttfb_ms": 933.03,
+      "total_response_latency_ms": 1222.03
+    }
+  ],
+  "concurrency_load_benchmarks": {
+    "timestamp": "2026-10-19T06:56:50.482210+00:00",
+    "target_url": "http://localhost:8000",
+    "tiers": [
+      {
+        "concurrency": 1,
+        "total_requests": 20,
+        "successful_requests": 20,
+        "error_count": 0,
+        "error_rate_percent": 0.0,
+        "total_duration_seconds": 0.127,
+        "throughput_rps": 157.68,
+        "latency_percentiles_ms": {
+          "min": 2.79,
+          "p50": 3.19,
+          "p90": 3.47,
+          "p95": 3.56,
+          "p99": 66.69,
+          "max": 66.69,
+          "mean": 6.33
+        }
+      },
+      {
+        "concurrency": 5,
+        "total_requests": 100,
+        "successful_requests": 100,
+        "error_count": 0,
+        "error_rate_percent": 0.0,
+        "total_duration_seconds": 0.195,
+        "throughput_rps": 513.71,
+        "latency_percentiles_ms": {
+          "min": 4.88,
+          "p50": 8.77,
+          "p90": 12.76,
+          "p95": 15.45,
+          "p99": 20.31,
+          "max": 21.56,
+          "mean": 9.55
+        }
+      },
+      {
+        "concurrency": 10,
+        "total_requests": 200,
+        "successful_requests": 200,
+        "error_count": 0,
+        "error_rate_percent": 0.0,
+        "total_duration_seconds": 0.394,
+        "throughput_rps": 508.16,
+        "latency_percentiles_ms": {
+          "min": 2.79,
+          "p50": 14.75,
+          "p90": 30.05,
+          "p95": 44.25,
+          "p99": 58.05,
+          "max": 86.39,
+          "mean": 17.47
+        }
+      },
+      {
+        "concurrency": 25,
+        "total_requests": 500,
+        "successful_requests": 500,
+        "error_count": 0,
+        "error_rate_percent": 0.0,
+        "total_duration_seconds": 1.829,
+        "throughput_rps": 273.36,
+        "latency_percentiles_ms": {
+          "min": 4.19,
+          "p50": 41.48,
+          "p90": 190.4,
+          "p95": 253.48,
+          "p99": 482.75,
+          "max": 714.64,
+          "mean": 81.45
+        }
+      }
+    ]
+  }
+}

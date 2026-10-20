@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.env.*
+node_modules
+.next
+.next-smoke
+playwright
+playwright-report
+test-results
+out
+build
+dist
+*.log
+.DS_Store
+Thumbs.db
