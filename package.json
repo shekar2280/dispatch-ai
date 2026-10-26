@@ -1,0 +1,19 @@
+{
+  "name": "dispatch-ai-platform",
+  "version": "1.0.0",
+  "description": "Clinic operations dashboard and voice API",
+  "private": true,
+  "scripts": {
+    "docker": "docker compose up --build",
+    "docker:stop": "docker compose down",
+    "dev:web": "npm --prefix ./apps/web run dev",
+    "test:e2e": "npm --prefix ./apps/web run test:e2e",
+    "build": "npm --prefix apps/web run build",
+    "lint": "npm --prefix apps/web run lint",
+    "typecheck": "npm --prefix apps/web run typecheck",
+    "test": "python -m pytest",
+    "test:smoke": "npm --prefix apps/web run test:smoke",
+    "build:smoke": "npm --prefix apps/web run build:smoke"
+  },
+  "license": "MIT"
+}
